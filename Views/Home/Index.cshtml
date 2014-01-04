@@ -1,0 +1,53 @@
+﻿<script src="https://connect.facebook.net/ru_RU/all.js"></script>
+<script src="~/Scripts/1241118.js"></script>
+<script src="~/Scripts/knockout-2.2.0.js"></script>
+<script src="~/Scripts/jquery-1.8.2.js"></script>
+<link href="~/Content/Site2.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.timeago.js"></script>
+<script src="~/Scripts/jquery.autosize-min.js"></script>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+
+@*<article>
+    <div id="gUL">
+        <button id="HCMUSFIT" onclick="scroll()">HCMUS - FIT - LTHD - HC</button>
+    </div>
+</article>*@
+
+<script type="text/javascript">
+    $(function () {
+        getGroupWall(0, 5);
+
+    });
+    var loading = true;
+    var start = 5;
+    var end = 10;
+    $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            getGroupWall(start, end);
+            start += 5;
+            end += 5;
+        }
+    });
+
+
+    
+</script>
+
+<article>
+
+   <div class="publishContainer" style="clear:both">
+        <textarea class="msgTextArea" id="txtMessage" data-bind="value: newMessage, jqAutoresize: {}" style="height: 49px; overflow: hidden; word-wrap: break-word; resize: none;" placeholder="What's on your mind?"></textarea>
+        <input type="button" data-url="/Wall/SavePost" value="Share" id="btnShare" data-bind="click: addPost">
+    </div>
+
+   <ul id="msgHolder" data-bind="foreach: posts">
+
+      
+    <li class="postHolder">
+     
+    </li>
+
+   
+</ul>
+
+</article>
